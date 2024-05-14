@@ -1,29 +1,91 @@
-# Create T3 App
+<img width="1280" alt="Screenshot 2024-05-14 at 11 35 20 PM" src="https://github.com/nischaltimalsina/next-boilerplate/assets/94827555/79afaf78-5371-4a91-82e7-75aa1c3de5d2">
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+# Entail: Next Boilerplate
+## The only Next Js Boilerplate Template You'll need to start your Project
 
-## What's next? How do I make an app with this?
+This is a boilerplate template to kickstart your Next.js development projects. It provides a clean and well-structured foundation with essential tools and configurations to get you up and running quickly.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+### Features
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+* **Next.js:** Latest version of Next.js framework for server-side rendering, static site generation, and more.
+* **React:** Leverages React for building dynamic and interactive user interfaces.
+* **Linting and Formatting:** Enforces code quality with Husky, ESLint and Prettier for a consistent codebase.
+* **Organized Structure:** Follows a well-defined directory structure for easy navigation and maintainability.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### Getting Started
 
-## Learn More
+1. **Clone the repository:**
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+   ```bash
+   git clone https://github.com/nischaltimalsina/next-boilerplate.git
+   ```
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+2. **Install dependencies:**
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+   ```bash
+   cd next-boilerplate
+   npm install
+   ```
 
-## How do I deploy this?
+   (or)
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+   ```bash
+   yarn install
+   ```
+
+3. **Start the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+   (or)
+
+   ```bash
+   yarn dev
+   ```
+
+   This will open your application in the default browser, typically at `http://localhost:3000`.
+
+### Project Structure
+
+The boilerplate utilizes a standardized structure to keep your project organized:
+
+* **public:** Static assets like images, fonts, and favicons.
+* **src:** Contains the core application code:
+    * **app:** Next.js app directory representing the different routes of your application.
+    * **components:** Reusable React components for building UI elements.
+    * **styles:** Global and component-specific stylesheets (consider using CSS Modules).
+    * and much more 
+* **package.json:** Manages project dependencies and scripts.
+* **.eslintrc.cjs:** ESLint configuration for code linting.
+* **next.config.js:** Optional configuration file for Next.js settings.
+
+### Customization
+
+* **Favicons:** Replace the placeholder favicons in the `public` folder with your own.
+* **Branding:** Update the global styles in `src/styles` to match your brand identity.
+* **Components:** Develop your custom components in the `src/components` directory.
+* **Screens:** Organize your page components and control them in the `src/screens` directory.
+* **Pages:** Create new pages in the `src/app` directory to define new application routes.
+
+
+### Contributing
+
+I am glad to welcome contributions to improve this boilerplate. I appreciate your interest in contributing! Here's a quick guide:
+
+* **Issues:** Report bugs or request features by creating a new issue on GitHub.
+* **Pull Requests:** Fork the repository, make your changes, and submit a pull request for review. 
+* **Code Style:** Follow the existing code style and formatting for consistency. 
+* **Tests:** Add unit tests for your new code (if applicable).
+* **Communication:** Be clear and concise in your pull requests and comments.
+
+I'll be happy to review your contributions and collaborate to improve the boilerplate!
+
+
+### License
+
+This boilerplate is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+
+
