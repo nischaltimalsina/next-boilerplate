@@ -15,25 +15,20 @@ const inter = Inter({
 })
 
 const generalKeywords = [
-  "creator booking",
-  "celebrity booking",
-  "influencer booking",
-  "talent booking",
-  "agency booking",
-  "brand marketing",
-  "influencer marketing",
-  "content creation",
-  "collaboration platform",
-  "brand partnerships",
+  "next js",
+  "react",
+  "development",
+  "boilerplate",
+  "frontend",
+  "next auth",
 ]
 const targetAudienceKeywords = [
-  "creators",
-  "celebrities",
-  "influencers",
-  "brands",
-  "marketers",
+  "developers",
+  "designers",
+  "students",
+  "frontend developer",
 ]
-const actionKeywords = ["book", "connect", "hire", "collaborate"]
+const actionKeywords = ["connect", "rate", "star", "follow"]
 
 export const metadata: Metadata = {
   title: {
@@ -48,7 +43,7 @@ export const metadata: Metadata = {
       url: "https://nischaltimalsina.com.np",
     },
   ],
-  creator: "thelunaticlad",
+  creator: "nischaltimalsina",
 
   openGraph: {
     type: "website",
