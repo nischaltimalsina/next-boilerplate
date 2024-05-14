@@ -32,7 +32,7 @@ export function MainNav({ items, children }: MainNavProps) {
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
 
   return (
-    <div className="flex w-full justify-between gap-6 md:gap-10">
+    <div className="flex w-full flex-row-reverse justify-between gap-6 md:flex-row md:gap-10">
       <Link
         href="/"
         className="hidden items-center justify-between space-x-2 md:flex"
@@ -61,10 +61,16 @@ export function MainNav({ items, children }: MainNavProps) {
           ))}
         </nav>
       ) : null}
-      <div className="ml-auto flex items-center gap-4">
+      <div className="ml-auto flex items-center gap-2">
         <ModeToggle />
+        <Link href="https://github.com/nischaltimalsina/next-boilerplate.git">
+          <Icons.gitHub className="size-7" />
+        </Link>
         {status === "unauthenticated" && (
-          <Link href={"/login"} className="text-lg font-medium text-primary">
+          <Link
+            href={"/login"}
+            className="ml-2 text-lg font-medium text-primary"
+          >
             Login
           </Link>
         )}

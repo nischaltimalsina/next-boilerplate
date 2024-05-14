@@ -29,7 +29,7 @@ export const Hero = () => {
             </a>
             <a
               href="https://github.com/nischaltimalsina/next-boilerplate.git"
-              className="flex items-center gap-2 rounded-lg border px-4 py-2 font-medium text-gray-700 duration-150 hover:text-gray-500 active:bg-gray-100"
+              className="flex items-center justify-center gap-2 rounded-lg border px-4 py-2 font-medium text-gray-700 duration-150 hover:text-gray-500 active:bg-gray-100"
             >
               Leave a Star on Github{" "}
               <StarFilledIcon className="size-6 text-amber-400" />
