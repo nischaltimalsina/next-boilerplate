@@ -2,11 +2,9 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { signIn } from "next-auth/react"
-import { useSearchParams } from "next/navigation"
 import * as React from "react"
 import { useForm } from "react-hook-form"
 import type * as z from "zod"
-
 import { Icons } from "@/components/shared/icons"
 import { buttonVariants } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -30,26 +28,11 @@ export function SignupForm({ className, ...props }: UserAuthFormProps) {
   })
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false)
-  const searchParams = useSearchParams()
 
   async function onSubmit(data: FormData) {
     setIsLoading(true)
-
-    const signInResult = await signIn("email", {
-      email: data.email.toLowerCase(),
-      redirect: false,
-      callbackUrl: searchParams?.get("from") ?? "/dashboard",
-    })
-
+    console.log(data)
     setIsLoading(false)
-
-    if (!signInResult?.ok) {
-      return toast({
-        title: "Something went wrong.",
-        description: "Your sign in request failed. Please try again.",
-        variant: "destructive",
-      })
-    }
 
     return toast({
       title: "Check your email",
@@ -70,22 +53,22 @@ export function SignupForm({ className, ...props }: UserAuthFormProps) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid gap-2">
           <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="email">
-              Email
+            <Label className="sr-only" htmlFor="username">
+              Username
             </Label>
             <Input
-              id="email"
+              id="username"
               placeholder="name@example.com"
-              type="email"
+              type="username"
               autoCapitalize="none"
-              autoComplete="email"
+              autoComplete="username"
               autoCorrect="off"
               disabled={isLoading || isGitHubLoading}
-              {...register("email")}
+              {...register("username")}
             />
-            {errors?.email && (
+            {errors?.username && (
               <p className="px-1 text-xs text-red-600">
-                {errors.email.message}
+                {errors.username?.message}
               </p>
             )}
           </div>

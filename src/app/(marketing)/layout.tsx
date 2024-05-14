@@ -1,10 +1,6 @@
-import Link from "next/link"
-
 import { MainNav } from "@/components/navigation/main-nav"
 import { SiteFooter } from "@/components/navigation/site-footer"
-import { buttonVariants } from "@/components/ui/button"
 import { marketingConfig } from "@/config/marketing"
-import { cn } from "@/lib/utils"
 
 interface MarketingLayoutProps {
   children: React.ReactNode

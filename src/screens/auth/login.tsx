@@ -1,3 +1,4 @@
+import React from "react"
 import { buttonVariants } from "@/components/ui"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
@@ -19,7 +20,13 @@ export function Login() {
             Register
           </Link>
         </div>
-        <LoginForm className="w-full max-w-sm" />
+        <React.Suspense
+          fallback={
+            <Icons.spinner className="size-12 animate-spin text-primary" />
+          }
+        >
+          <LoginForm className="w-full max-w-sm" />
+        </React.Suspense>
         <div className=""></div>
       </div>
     </div>
