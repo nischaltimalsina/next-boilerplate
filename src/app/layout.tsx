@@ -6,12 +6,13 @@ import { type Metadata, type Viewport } from "next"
 
 import { Toaster } from "@/components/ui"
 import { ThemeProvider } from "@/context/theme-provider"
-import { Inter } from "next/font/google"
+import { Poppins } from "next/font/google"
 import { SessionProvider } from "@/context/session-provider"
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-sans",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 })
 
 const generalKeywords = [
@@ -78,8 +79,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Children) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans ${inter.variable}`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+      <body className={`font-sans ${poppins.variable} ${poppins.className}`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+        >
           <SessionProvider>{children}</SessionProvider>
           <Toaster />
         </ThemeProvider>

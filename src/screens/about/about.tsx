@@ -1,13 +1,14 @@
-/* eslint-disable @next/next/no-img-element */
-import React from "react"
-import { Hero, Teams, CTA } from "./_components"
+import { Cta, Newsletter } from "../home/_components"
+import { Hero, Story, Testimonial } from "./_components"
 
 export const About = () => {
   return (
-    <>
+    <div className="space-y-20">
       <Hero />
-      <Teams />
-      <CTA />
-    </>
+      <Story />
+      <Testimonial />
+      <Cta />
+      <Newsletter />
+    </div>
   )
 }

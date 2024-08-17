@@ -1,47 +1,56 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { Button, buttonVariants } from "@/components/ui"
+import { cn } from "@/lib/utils"
+import Link from "next/link"
 import React from "react"
-import { StarFilledIcon } from "@radix-ui/react-icons"
 export const Hero = () => {
   return (
     <section>
-      <div className="gap-12 py-28 text-gray-600">
-        <div className="mx-auto max-w-4xl space-y-5 text-center">
-          <h1 className="text-sm font-medium text-indigo-600">
-            Build products for everyone
-          </h1>
-          <h2 className="mx-auto text-4xl font-extrabold text-gray-800 md:text-5xl">
-            Start your projects faster with{" "}
-            <span className="bg-gradient-to-r from-[#4F46E5] to-[#E114E5] bg-clip-text text-transparent">
-              the best NEXT BOILERPLATE
-            </span>
-          </h2>
-          <p className="mx-auto max-w-2xl">
-            Sed ut perspiciatis unde omnis iste natus voluptatem accusantium
-            doloremque laudantium, totam rem aperiam, eaque ipsa quae.
-          </p>
-          <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
-            <a
-              href="#features"
-              className="block rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white shadow-lg duration-150 hover:bg-indigo-500 hover:shadow-none active:bg-indigo-700"
-            >
-              Get Started
-            </a>
-            <a
-              href="https://github.com/nischaltimalsina/next-boilerplate.git"
-              className="flex items-center justify-center gap-2 rounded-lg border px-4 py-2 font-medium text-gray-700 duration-150 hover:text-gray-500 active:bg-gray-100"
-            >
-              Leave a Star on Github{" "}
-              <StarFilledIcon className="size-6 text-amber-400" />
-            </a>
+      <div className="gap-12 py-12 text-gray-600">
+        <div className="relative flex gap-10">
+          <div className="absolute right-0 top-0 -z-10 h-full w-full max-w-xl opacity-40 md:opacity-70">
+            <img
+              src="https://raw.githubusercontent.com/sidiDev/remote-assets/main/Safari%20(Big%20Sur)%20-%20Light.png"
+              className="w-full origin-left rotate-12 rounded-lg border shadow"
+              alt="placeholder-1"
+            />
+            <img
+              src="https://raw.githubusercontent.com/sidiDev/remote-assets/main/Safari%20(Big%20Sur)%20-%20Light.png"
+              className="-mt-16 ml-auto h-96 w-96 origin-left -rotate-3 rounded-lg border shadow"
+              alt="placeholder-2"
+            />
           </div>
-        </div>
-        <div className="mt-14">
-          <img
-            src="https://raw.githubusercontent.com/sidiDev/remote-assets/main/Safari%20(Big%20Sur)%20-%20Light.png"
-            className="w-full rounded-lg border shadow-lg"
-            alt=""
-          />
+          <div className="z-10 flex flex-col gap-24 lg:gap-56">
+            <div className="max-w-sm space-y-3">
+              <p className="text-2xl font-medium">
+                Unlock Your Social Insights
+              </p>
+              <p className="text-lg">
+                Lorem fusce orci enim scelerisque phasellus congue nibh at quam
+                venenatis vel gravida elit enim aliquet.
+              </p>
+            </div>
+            <div className="w-full max-w-2xl space-y-6">
+              <h2 className="text-balance text-4xl !leading-[1.3] md:text-5xl lg:text-pretty lg:text-6xl ">
+                Your Gateway To Social Media Insights And Success
+              </h2>
+              <div className="flex items-center gap-4">
+                <Button size={"lg"} className="rounded-full text-background">
+                  Get Started Now
+                </Button>
+                <Link
+                  href={"/login"}
+                  className={cn(
+                    buttonVariants({ size: "lg", variant: "outline" }),
+                    "rounded-full text-base font-medium"
+                  )}
+                >
+                  Login
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

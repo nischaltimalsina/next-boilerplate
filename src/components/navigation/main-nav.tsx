@@ -7,19 +7,10 @@ import * as React from "react"
 
 import { MobileNav } from "@/components/navigation/mobile-nav"
 import { Icons } from "@/components/shared/icons"
-import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { type MainNavItem } from "@/types"
-import { ModeToggle } from "../shared/mode-toggle"
-import { signOut, useSession } from "next-auth/react"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu"
+import Image from "next/image"
+import { Button, buttonVariants } from "../ui"
 
 interface MainNavProps {
   items?: MainNavItem[]
@@ -28,22 +19,26 @@ interface MainNavProps {
 
 export function MainNav({ items, children }: MainNavProps) {
   const segment = useSelectedLayoutSegment()
-  const { data, status } = useSession()
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
 
   return (
-    <div className="flex w-full flex-row-reverse justify-between gap-6 md:flex-row md:gap-10">
+    <div className="flex w-full flex-row-reverse justify-between gap-6 lg:flex-row lg:gap-10">
       <Link
         href="/"
-        className="hidden items-center justify-between space-x-2 md:flex"
+        className="hidden w-full items-center space-x-2 lg:flex lg:max-w-xs"
       >
-        <Icons.logo className="[&>path]:fill-primary" />
-        <span className="hidden text-2xl font-bold lowercase text-primary sm:inline-block">
-          {siteConfig.name}
+        <Image
+          src={"/android-chrome-192x192.png"}
+          alt="My Social View"
+          height={32}
+          width={32}
+        />
+        <span className="hidden text-xl lowercase text-primary sm:inline-block">
+          my <strong>social</strong> view
         </span>
       </Link>
       {items?.length ? (
-        <nav className="hidden gap-6 md:flex">
+        <nav className="hidden gap-8 lg:flex">
           {items?.map((item, index) => (
             <Link
               key={index}
@@ -61,52 +56,31 @@ export function MainNav({ items, children }: MainNavProps) {
           ))}
         </nav>
       ) : null}
-      <div className="ml-auto flex items-center gap-2">
-        <ModeToggle />
-        <Link href="https://github.com/nischaltimalsina/next-boilerplate.git">
-          <Icons.gitHub className="size-7" />
+      <div className="flex items-center gap-4">
+        <Button size={"lg"} className="rounded-full text-background">
+          Get Started Now
+        </Button>
+        <Link
+          href={"/login"}
+          className={cn(
+            buttonVariants({ size: "lg", variant: "outline" }),
+            "rounded-full text-base font-medium"
+          )}
+        >
+          Login
         </Link>
-        {status === "unauthenticated" && (
-          <Link
-            href={"/login"}
-            className="ml-2 text-lg font-medium text-primary"
-          >
-            Login
-          </Link>
-        )}
-        {status === "authenticated" && (
-          <DropdownMenu>
-            <DropdownMenuTrigger className="rounded-full">
-              <div className="size-11 overflow-hidden rounded-full border border-primary">
-                <img
-                  src={data.user.image!}
-                  alt={data.user.email!}
-                  className="size-full overflow-hidden object-cover"
-                />
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Billing</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={async () => await signOut()}>
-                Logout
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        )}
       </div>
       <button
-        className="flex items-center space-x-2 md:hidden"
+        className="flex items-center space-x-2 lg:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
         {showMobileMenu ? <Icons.close /> : <Icons.menu />}
         <span className="font-bold">Menu</span>
       </button>
       {showMobileMenu && items && (
-        <MobileNav items={items}>{children}</MobileNav>
+        <MobileNav setOpen={setShowMobileMenu} items={items}>
+          {children}
+        </MobileNav>
       )}
     </div>
   )

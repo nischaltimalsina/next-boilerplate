@@ -1,3 +1,6 @@
+import { Button, buttonVariants } from "@/components/ui"
+import { cn } from "@/lib/utils"
+import Link from "next/link"
 import React from "react"
 const features = [
   {
@@ -64,31 +67,103 @@ const features = [
 export const Features = () => {
   return (
     <section id="features" className="py-14">
-      <div className=" text-gray-600">
-        <div className="max-w-xl space-y-3">
-          <h3 className="font-semibold text-indigo-600">Features</h3>
-          <p className="text-3xl font-semibold text-gray-800 sm:text-4xl">
-            Do more with less complexity
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            congue, nisl eget molestie varius
-          </p>
-        </div>
-        <div className="mt-12">
-          <ul className="grid gap-x-12 divide-y sm:grid-cols-2 sm:gap-y-8 sm:divide-y-0 lg:grid-cols-3 lg:gap-x-0 lg:divide-x [&>.feature-1]:pl-0">
+      <div className="space-y-32 md:space-y-56">
+        <div className="space-y-32 md:space-y-56 ">
+          <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3  [&>.feature-1]:pl-0">
             {features.map((item, idx) => (
               <li
                 key={idx}
-                className={`feature-${idx + 1} space-y-3 py-8 sm:py-0 lg:px-12`}
+                className={`feature-${idx + 1} md:odd:mt-12 lg:odd:mt-32`}
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border text-indigo-600">
-                  {item.icon}
+                <div className="grid h-64 w-full place-content-center rounded-3xl bg-accent lg:h-96">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border text-muted-foreground">
+                    {item.icon}
+                  </div>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-800">
+                <h4 className="mt-4 text-xl font-medium lg:text-3xl ">
                   {item.title}
                 </h4>
-                <p>{item.desc}</p>
+                <p className=" mt-2">{item.desc}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="grid gap-4 md:grid-cols-2 md:gap-10">
+            <div className="space-y-6 py-10 md:space-y-10">
+              <Link
+                href={"/login"}
+                className={cn(
+                  buttonVariants({ size: "default", variant: "outline" }),
+                  "rounded-full text-base font-normal"
+                )}
+              >
+                More About My Social View
+              </Link>
+
+              <h3 className="max-w-4xl text-balance text-2xl !leading-[1.3] md:text-4xl lg:text-pretty lg:text-5xl">
+                Keeping Track Of Any Social Media Performance Is Very Important
+              </h3>
+              <div className="space-y-6">
+                <p className="max-w-sm text-base">
+                  Lorem fusce orci enim scelerisque phasellus congue nibh at
+                  quam venenatis vel gravida elit enim aliquet.
+                </p>
+                <Button size={"lg"} className="rounded-full text-background">
+                  Learn More
+                </Button>
+              </div>
+            </div>
+            <div className="aspect-video w-full rounded-[1.75rem] bg-primary/20 p-8 pr-0 md:aspect-auto">
+              <div className="size-full rounded-l-3xl bg-accent brightness-90"></div>
+            </div>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 md:gap-10">
+            <div className="aspect-video w-full rounded-[1.75rem] bg-primary/20 p-8 pb-0 md:aspect-auto">
+              <div className="size-full rounded-t-3xl bg-accent brightness-90"></div>
+            </div>
+            <div className="space-y-6 py-10 md:space-y-10">
+              <Link
+                href={"/login"}
+                className={cn(
+                  buttonVariants({ size: "default", variant: "outline" }),
+                  "pointer-events-none invisible rounded-full text-base font-normal"
+                )}
+              >
+                More About My Social View
+              </Link>
+
+              <h3 className="max-w-4xl text-balance text-2xl !leading-[1.3] md:text-4xl lg:text-pretty lg:text-5xl">
+                Keeping Track Of Any Social Media Performance Is Very Important
+              </h3>
+              <div className="space-y-6">
+                <p className="max-w-sm text-base">
+                  Lorem fusce orci enim scelerisque phasellus congue nibh at
+                  quam venenatis vel gravida elit enim aliquet.
+                </p>
+                <Button size={"lg"} className="rounded-full text-background">
+                  Learn More
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full space-y-16">
+          <h3 className="mx-auto max-w-4xl text-balance text-center text-2xl !leading-[1.3] md:text-4xl lg:text-pretty lg:text-5xl">
+            Understand Your Competitor’s Social Media Pattern And Learn From
+            Those To Improve Yours
+          </h3>
+          <div className="aspect-video h-full w-full rounded-3xl bg-accent"></div>
+          <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3  [&>.feature-1]:pl-0">
+            {features.map((item, idx) => (
+              <li key={idx} className={`feature-${idx + 1}`}>
+                <div className="grid h-24 w-24 place-content-center rounded-3xl bg-primary/20">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border text-muted-foreground">
+                    {item.icon}
+                  </div>
+                </div>
+                <h4 className="mt-4 text-xl font-medium lg:text-2xl ">
+                  {item.title}
+                </h4>
+                <p className=" mt-2">{item.desc}</p>
               </li>
             ))}
           </ul>

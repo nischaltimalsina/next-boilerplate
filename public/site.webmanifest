@@ -1,6 +1,6 @@
 {
-  "name": "Ellixer",
-  "short_name": "Ellixer",
+  "name": "My Social View",
+  "short_name": "MSV",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
